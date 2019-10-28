@@ -1,0 +1,28 @@
+
+<tr class="table_desktop">
+    <td>{{ user.username}}</td>
+    <td>{{ user.firstname }}</td>
+    <td>{{ user.lastname }}</td>
+    <td><a class="feedback success" href="{{path('users_id', {'id': user.id}) }}">Show user</a></td>
+    <td><a class="feedback" href="{{path('user_edit', {'id': user.id}) }}">Edit user</a></td>
+    <td><a class="feedback error" href="{{path('user_delete', {'id': user.id}) }}">Delete user</a></td>
+</tr>
+
+<tr class="table_mobile"> 
+    <td>{{ user.username}}</td>
+    <td>{{ user.firstname }}</td>
+    <td>{{ user.lastname }}</td>
+    </tr>
+    <tr class="table_mobile">
+    <td><a class="feedback success" href="{{path('users_id', {'id': user.id}) }}">Show user</a></td>
+    <td><a class="feedback" href="{{path('user_edit', {'id': user.id}) }}">Edit user</a></td>
+    <td><a class="feedback error" href="{{path('user_delete', {'id': user.id}) }}">Delete user</a></td>
+</tr>
+
+
+
+
+
+
+
+

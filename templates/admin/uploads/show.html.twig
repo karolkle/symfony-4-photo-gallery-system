@@ -1,0 +1,22 @@
+<form name="image">
+    <div id="image">
+        <div>
+            <img src="{{ asset('uploads/') }}{{ image.filename }}" alt="" style="max-width: 500px" />
+        </div>
+        <div>
+            <label for="image_title" class="required">Title</label>
+            <input type="text" value="{{ image.title }}" disabled>
+        </div>
+        <div>
+            <label for="image_alternativetext" class="required">Alternative text</label>
+            <input type="text" value="{{ image.alternativetext }}" disabled>
+        </div>
+        <div>
+            <label for="image_description" class="required">Description</label>
+            <input type="textarea" value="{{ image.description }}" disabled>
+        </div>
+
+
+
+    </div>
+</form>

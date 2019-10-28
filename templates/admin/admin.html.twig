@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <header role="banner">
+        <h1>Admin Panel</h1>
+        <ul class="utilities">
+            <li class="users"><a href="admin/users/{{ app.user.id }}">Zalogowany: {{ app.user.username }}</a></li>
+            <li class="logout warn"><a href="{{ path('app_logout') }}">Log Out</a></li>
+        </ul>
+    </header>
+    <nav role="navigation">
+        <ul class="main">
+            <li class="dashboard"><a href="{{ path('dashboard') }}">Dashboard</a></li>
+            <li class="gallery"><a href="{{ path('images') }}">Manage Images</a></li>
+            <li class="write"><a href="{{ path('upload') }}">Upload</a></li>
+            <li class="comments"><a href="{{ path('comments') }}">Comments</a></li>
+            <li class="edit"><a href="{{ path('user_register') }}">Register Users</a></li>
+            <li class="users"><a href="{{ path('users') }}">Manage Users</a></li>
+        </ul>
+    </nav>
+    <main role="main">
+        <section class="panel important">
+            <h2>Welcome to Your Dashboard </h2>
+            <div class="row">
+
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <i class="fa fa-photo fa-5x"></i>
+                                </div>
+                                <div class="col-md-9 text-right">
+                                    <div class="huge">
+                                       {{images|length}} 
+                                </div>
+                                    <div>Photos</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Total Photos in Gallery</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-blue">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <i class="fa fa-user fa-5x"></i>
+                                </div>
+                                <div class="col-md-9 text-right">
+                                    <div class="huge">{{users|length}} 
+
+                                    </div>
+
+                                    <div>Users</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Total Users</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <i class="fa fa-support fa-5x"></i>
+                                </div>
+                                <div class="col-md-9 text-right">
+                                    <div class="huge">{{comments|length}}</div>
+                                    <div>Comments</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Total Comments</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div> <!--First Row-->
+        </section>
+    </main>
+
+{% endblock %}

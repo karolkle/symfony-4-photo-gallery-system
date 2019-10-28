@@ -1,0 +1,19 @@
+<form name="image">
+    <div id="image">
+        <div>
+            <div>
+                <label for="comment_author" class="required">Author</label>
+                <input type="text" value="{{ comment.author.firstname }} {{ comment.author.lastname }}" disabled>
+            </div>
+            <div>
+                <label for="comment_body" class="required">Comment</label>
+                <input type="text" value="{{ comment.body }}" disabled>
+            </div>
+            <div>
+                <label for="image_body" class="required">Image</label>
+                <img src="{{ asset('uploads/') }}{{ comment.imageid.filename }}" alt="" width="400px" />
+            </div>
+        </div>
+    </div>
+
+</form>

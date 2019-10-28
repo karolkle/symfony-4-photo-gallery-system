@@ -1,0 +1,24 @@
+<tr class="table_desktop">
+    <td><img src="{{ asset('uploads/') }}{{ image.filename }}" alt="" height="100px" /></td>
+    <td>{{ image.filename|slice(1, 10) }}</td>
+    <td>{{ image.title }}</td>
+
+    <td><a class="feedback success" href="{{path('image_id', {'id': image.id}) }}">Show image</a></td>
+    <td><a class="feedback" href="{{path('image_edit', {'id': image.id}) }}">Edit image</a></td>
+    <td><a class="feedback error" href="{{path('image_delete', {'id': image.id}) }}">Delete image</a>
+    </td>
+</tr>
+
+
+<tr class="table_mobile">
+    <td><img src="{{ asset('uploads/') }}{{ image.filename }}" alt="" height="100px" /></td>
+    <td width="">{{ image.filename|slice(1, 10) }}..</td>
+    <td>{{ image.title }}</td>
+    </tr>
+    <tr class="table_mobile">
+    <td><a class="feedback success" href="{{path('image_id', {'id': image.id}) }}">Show</a></td>
+    <td><a class="feedback" href="{{path('image_edit', {'id': image.id}) }}">Edit</a></td>
+    <td><a class="feedback error" href="{{path('image_delete', {'id': image.id}) }}">Delete</a>
+    </td>
+</tr>
+

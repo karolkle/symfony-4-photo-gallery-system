@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header role="banner">
+        <h1>Admin Panel</h1>
+        <ul class="utilities">
+            <li class="users"><a href="admin/users/{{ app.user.id }}">Zalogowany: {{ app.user.username }}</a></li>
+            <li class="logout warn"><a href="{{ path('app_logout') }}">Log Out</a></li>
+        </ul>
+    </header>
+    <nav role="navigation">
+        <ul class="main">
+             <li class="dashboard"><a href="{{ path('dashboard') }}">Dashboard</a></li>
+             <li class="gallery"><a href="{{ path('images') }}">Manage Images</a></li>
+            <li class="write"><a href="{{ path('upload') }}">Upload</a></li>
+           <li class="comments"><a href="{{ path('comments') }}">Comments</a></li>
+            <li class="edit"><a href="{{ path('user_register') }}">Register Users</a></li>
+            <li class="users"><a href="{{ path('users') }}">Manage Users</a></li>
+        </ul>
+    </nav>
+
+    <main role="main">
+        <section class="panel">
+
+            <h2 class="border-bottom border-gray pb-2 mb-0">Manage Image</h2>
+
+
+            <div class="twothirds">
+                {{ include('admin/comments/show.html.twig', {'comment': comment}) }}
+            </div>
+
+
+
+        </section>
+    </main>
+{% endblock %}

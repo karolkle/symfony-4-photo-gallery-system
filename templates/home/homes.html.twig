@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <header role="banner">
+        <h1>Home</h1>
+        <ul class="utilities">
+
+            <li class="users"><a href="{{ path('app_login') }}">Log In</a></li>
+            {% if is_granted('ROLE_USER') %}
+            <li class="logout warn"><a href="">Log Out</a></li>4
+            {%  endif %}
+        </ul>
+    </header>
+    <main role="main">
+        <section class="panel">
+
+           
+
+                {{ include('home/raw.html.twig', {'image': image}) }}
+                <hr>
+                
+                <div class="twothirds mt-4">
+                    <h4>Add comment</h4>
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    {{ form_end(form) }}
+                </div>
+                
+                <div class="twothirds mt-4 mb-4">
+                <h4>Comments</h4>
+                {% for com in comments %}
+                {{ include('home/show.html.twig', {'com': com}) }}
+                {% endfor %}
+                </div>
+        </section>
+        <section class="panel secondary">
+            <h4>Search</h4>
+            <form class="form-inline md-form mr-auto d-block mb-4 t-center">
+  <input class="form-control mr-sm-2 d-block mb-2" type="text" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-warning btn-rounded btn-sm my-0 d-block" type="submit">Search</button>
+</form>
+            
+        </section>
+        <section class="panel secondary">
+            <h4>Another images</h4>
+            
+        </section>
+    </main>
+{% endblock %}

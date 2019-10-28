@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+<header role="banner">
+        <h1>Admin Panel</h1>
+        <ul class="utilities">
+            <li class="users"><a href="admin/users/{{ app.user.id }}">Zalogowany: {{ app.user.username }}</a></li>
+            <li class="logout warn"><a href="{{ path('app_logout') }}">Log Out</a></li>
+        </ul>
+    </header>
+    <nav role="navigation">
+        <ul class="main">
+            
+             <li class="dashboard"><a href="{{ path('dashboard') }}">Dashboard</a></li>
+            <li class="write"><a href="{{ path('upload') }}">Upload</a></li>
+            <li class="comments"><a href="{{ path('comments') }}">Comments</a></li>
+            <li class="edit"><a href="{{ path('user_register') }}">Register Users</a></li>
+            <li class="users"><a href="{{ path('users') }}">Manage Users</a></li>
+         </ul>
+    </nav>
+    {% endif %}
+{% if not is_granted('ROLE_ADMIN') %}
+    <header role="banner">
+        <h1>Register</h1>
+        <ul class="utilities">
+             <li class="gallery"><a href="{{ path('homes') }}">Gallery</a></li>
+            <li class="users"><a href="{{ path('app_login') }}">Log In</a></li>
+        </ul>
+    </header>
+    {% endif %}
+    <main role="main">
+        <section class="panel">
+        {% if is_granted('ROLE_ADMIN') %}
+            <h2 class="border-bottom border-gray pb-2 mb-0">Register</h2>
+            {% endif %}
+
+            <div class="twothirds">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
+            </div>
+
+        </section>
+
+
+    </main>
+{% endblock %}
+
+

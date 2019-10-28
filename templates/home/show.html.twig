@@ -1,0 +1,16 @@
+{% if app.request.pathinfo == '/home/' ~ com.imageId.id %}
+    <li>
+        <div class="comment-main-level">
+            <div class="comment-box">
+                <div class="comment-head">
+                    <h6 class="comment-name by-author">{{ com.author.firstname }} {{ com.author.lastname }}</h6>
+                    <span>Today</span>
+                </div>
+                <div class="comment-content">
+                    {{ com.body }}
+                </div>
+            </div>
+        </div>
+    </li>
+
+{% endif %}

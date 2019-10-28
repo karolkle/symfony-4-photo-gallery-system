@@ -1,0 +1,30 @@
+
+<tr class="table_desktop">
+    <td>{{ comment.body}}</td>
+    <td>{{ comment.author.firstname }} {{ comment.author.lastname }}</td>
+    <td>{{ comment.imageId.title }}</td>
+    <td><a class="feedback success" href="{{path('comments_id', {'id': comment.id}) }}">Show comment</a></td>
+    <td><a class="feedback" href="{{path('comment_edit', {'id': comment.id}) }}">Edit comment</a></td>
+    <td><a class="feedback error" href="{{path('comment_delete', {'id': comment.id}) }}">Delete comment</a>
+    </td> 
+</tr>
+
+
+<tr class="table_mobile">
+    <td>{{ comment.body}}</td>
+    <td>{{ comment.author.firstname }} {{ comment.author.lastname }}</td>
+    <td>{{ comment.imageId.title }}</td>
+    </tr>
+    <tr class="table_mobile">
+    <td><a class="feedback success" href="{{path('comments_id', {'id': comment.id}) }}">Show</a></td>
+    <td><a class="feedback" href="{{path('comment_edit', {'id': comment.id}) }}">Edit</a></td>
+    <td><a class="feedback error" href="{{path('comment_delete', {'id': comment.id}) }}">Delete</a>
+    </td> 
+</tr>
+
+
+
+
+
+
+

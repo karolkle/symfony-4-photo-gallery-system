@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header role="banner">
+        <h1>Gallery System</h1>
+        <ul class="utilities">
+            <li class="users"><a href="{{ path('user_register') }}">Register</a></li>
+            <li class="users"><a href="{{ path('app_login') }}">Log In</a></li>
+            {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
+            <li class="logout warn"><a href="{{ path('app_logout') }}">Log Out</a></li>
+            {%  endif %}
+        </ul>
+    </header>
+    <main role="main">
+        <section class="panel important mt-5">
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="thumbnails row">
+                            {% for image in images %}
+
+                        {{ include('home/photo.html.twig', {'image': image}) }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+        </section>
+
+    </main>
+{% endblock %}
